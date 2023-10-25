@@ -86,8 +86,14 @@ const initialState = {
         { id: "Human Resource", name: 'Human Resource', cost: 40 },
         { id: "IT", name: 'IT', cost: 500 },
     ],
-    currency: '£'
+    currencies: [
+        {id:"$ Dollar",value: '$ Dollar', name:'$ Dollar', icon:'$'},
+        {id:"£ Pound",value: '£ Pound', name:'£ Pound', icon:'£'},
+        {id:"€ Euro",value: '€ Euro', name:'€ Euro', icon:'€'},
+        {id:"₹ Ruppee",value: '₹ Ruppee', name:'₹ Ruppee', icon:'₹'},
+    ],
 };
+
 
 // 2. Creates the context this is the thing our components import and use to get the state
 export const AppContext = createContext();
@@ -113,7 +119,7 @@ export const AppProvider = (props) => {
                 budget: state.budget,
                 remaining: remaining,
                 dispatch,
-                currency: state.currency
+                currencies: state.currencies
             }}
         >
             {props.children}
