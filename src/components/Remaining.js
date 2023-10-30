@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 const Remaining = (props) => {
-    const  currency  = props.name;
+    const  currency  = props.icon;
     const { expenses, budget,  } = useContext(AppContext);
 
     const totalExpenses = expenses.reduce((total, item) => {

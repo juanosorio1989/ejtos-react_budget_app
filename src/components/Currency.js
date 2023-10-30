@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 import Budget from './Budget';
+import Remaining from './Remaining';
+import ExpenseTotal from './ExpenseTotal';
 
 const Currency = (props) => {
-   const { currencies } = useContext(AppContext);
+   const currencies  = useContext(AppContext);
 
     const [name, setName] = useState('');
     const [icon, setIcon] = useState('$');
@@ -28,11 +30,20 @@ const Currency = (props) => {
     };
 
     return (
+       
         <div>
-          <Budget icon={icon} name={name}/>
-            <div className='row'>
-
-            <div className="input-group mb-3" style={{ marginLeft: '2rem', color:'white', backgroundColor:'green'}}>
+            <div className='row mt-3'>
+                <div className="col-sm"> 
+                <Budget icon={icon} name={name}/>
+                </div>
+                <div className="col-sm">
+                <Remaining icon={icon} name={name} />
+                </div>
+                <div className="col-sm">
+                <ExpenseTotal icon={icon} name={name} />
+                </div>
+                <div className='col-sm'>
+                <div className="input-group mb-3" style={{ marginLeft: '2rem', color:'white', backgroundColor:'green'}}>
                     <div className="input-group-prepend" >
                
  <label className="input-group-text" htmlFor="inputGroupSelect01" style={{color:'white', backgroundColor:'green'}}>
@@ -48,6 +59,13 @@ const Currency = (props) => {
                   
                  
                 </div>
+                </div>
+            </div>
+         
+         
+            <div className='row'>
+
+           
                 </div>
         </div>
     );
